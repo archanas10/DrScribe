@@ -1,0 +1,67 @@
+<!-- <div *ngIf="auth.user$ | async; then authenticated else guest">
+</div> -->
+
+<!-- User NOT logged in -->
+<!-- <ng-template #guest>
+<h3>Howdy, GUEST</h3>
+<p>Login to get started...</p>
+
+<button (click)="auth.googleSignin()">
+  <i class="fa fa-google"></i> Connect Google
+</button>
+
+</ng-template> -->
+
+
+<!-- User logged in -->
+<!-- <ng-template #authenticated>
+<div *ngIf="auth.user$ | async as user">
+  <h3>Howdy, {{ user.displayName }}</h3>
+  <img  [src]="user.photoURL">
+  <p>UID: {{ user.uid }}</p>
+  <button (click)="auth.signOut()">Logout</button>
+</div>
+</ng-template> -->
+
+
+
+
+<!-- <div class="container-fluid">
+  <div style="color: blue;">
+    <h1>{{title}}</h1>
+  </div>
+
+  <nav>
+    <a routerLink="patients" class="btn btn-primary active" role="button" routerLinkActive="active" >Users</a>
+    <a routerLink="add" class="btn btn-primary active" role="button" routerLinkActive="active">Add</a>
+  </nav>
+
+
+  <h2>Content from Firebase</h2>
+  <div class="col-md-3">
+    <pre *ngFor="let item of userdetails | async">{{item.content}}</pre>
+  </div>
+
+<</div> -->
+
+
+<!-- <app-header></app-header>
+<app-root></app-root>
+<main>
+  <app-login></app-login>
+  <router-outlet></router-outlet>
+</main> -->
+
+
+
+<!-- <app-login></app-login> -->
+<div class="container" id="container" *ngIf="checkIsUserLogged; else signup">
+  <app-header></app-header>
+  <app-home></app-home>
+</div>
+<ng-template #signup>
+  <app-signup></app-signup>
+</ng-template>
+
+
+<!-- <app-home></app-home> -->

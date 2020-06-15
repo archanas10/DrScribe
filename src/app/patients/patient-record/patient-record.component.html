@@ -1,0 +1,158 @@
+<mat-grid-list cols="2" rowHeight="20rem">
+  <mat-grid-tile>
+
+
+    <div class="relative">
+      <h3>Patient Provided Details</h3>
+      <div class="absolute" >
+        <table>
+          <tr>
+            <td class="field">Name</td>
+            <td>Sudhan</td>
+          </tr>
+          <tr>
+            <td class="field">Age</td>
+            <td>23</td>
+          </tr>
+          <tr>
+            <td class="field">Gender</td>
+            <td>Male</td>
+          </tr>
+          <tr>
+            <td class="field">Last Visited</td>
+            <td>-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="relative">
+      <h3>Patient Details</h3>
+      <div class="absolute">
+        <table>
+          <tr>
+            <td class="field">Weight</td>
+            <td>60kgs</td>
+          </tr>
+          <tr>
+            <td class="field">Height</td>
+            <td>180cm</td>
+          </tr>
+          <tr>
+            <td class="field">Blood Pressure</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Pulse Rate</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Marital Status</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Physical Activity</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Body Temperature</td>
+            <td>-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="relative">
+      <h3>Medical Details</h3>
+      <div class="absolute">
+        <table>
+          <tr>
+            <td class="field">Diabetic</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Heart Health</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Asthematic</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Other</td>
+            <td>-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="relative">
+      <h3>Diagnostic Details</h3>
+      <div class="absolute">
+        <table>
+          <tr>
+            <td class="field">Blood Type</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Thyroid Level</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td class="field">Other</td>
+            <td>-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="relative">
+      <h3>Symptoms facing</h3>
+      <div class="absolute">
+        <p>Cold, cough</p>
+      </div>
+      <div class="absolute">
+        <h3>Medication Prescribed</h3>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="relative">
+      <h3>Apointment(s) Status</h3>
+      <div class="absolute">
+        <h5>Previous Appointment</h5>
+      </div>
+      <div class="absolute">
+        <p>23 May 2020</p>
+      </div>
+      <div class="absolute">
+        <h5>Next Appointment</h5>
+      </div>
+      <div class="absolute">
+        <p>-</p>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>
+<div class = "actionButtons">
+  <div class="approve">
+    <button class="approve" (click)="onClickApprove($event)">Approve</button>
+  </div>
+  <div class="reject">
+    <button class="reject" (click)="onClickReject($event)">Reject</button>
+  </div>
+  <div class="changetime">
+    <button class="changetime">Change Time</button>
+  </div>
+</div>

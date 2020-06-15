@@ -1,0 +1,111 @@
+<div class="container" id="container" *ngIf="loginContainer===true; else signIn">
+  <div class="row" *ngIf="authError">
+    <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+  </div>
+  <mat-card>
+      <div class="row mt-4">
+        <img [src]=logo>
+        <div class="col-12">
+          <h2>Login</h2>
+        </div>
+        <div class="col-12">
+          <form id="login" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+            <div class="row">
+              <div class="col-12">
+                <label for="email">Email</label>
+                <input ngModel #email="ngModel" name="email" type="email" class="form-control">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <label for="password">Password</label>
+                <input ngModel #password="ngModel" name="password" type="password" class="form-control">
+              </div>
+            </div>
+
+            <div class="row mt-2">
+
+              <div class="col-12">
+                <button class="btn btn-primary" type="submit">Login</button>
+              </div>
+
+              <div class="col-12">
+                <span class="redirect" (click)="loginTemplate()">New here? Register</span>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+  </mat-card>
+</div>
+
+<ng-template #signIn>
+  <mat-card>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <h2>Sign Up</h2>
+      </div>
+
+      <div class="col-12">
+        <div class="row" *ngIf="authError">
+          <div class="col-12 alert alert-danger">
+            {{ authError?.message }}
+          </div>
+        </div>
+          <form id="register" #userRegForm="ngForm" (ngSubmit)="onSubmit(userRegForm)">
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <label for="firstName">First name</label>
+              <input ngModel #firstname="ngModel" name="firstName" type="text" class="form-control" id="firstName">
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="lastName">Last name</label>
+              <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName"
+                value="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="email">Email</label>
+              <input ngModel #email="ngModel" name="email" type="email" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label for="phoneNo">Phone Number</label>
+              <input ngModel #phoneNo="ngModel" name="phoneNo" type="number" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <label>Hospital Name</label>
+              <input name="hospital" type="text" class="form-control">
+            </div>
+          </div>
+          <div>
+            <div class="row">
+              <div class="col-md-12 mb-2">
+                <label for="password">Code</label>
+                <input ngModel #password="ngModel" name="password" type="password" class="form-control">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </div>
+              <div class="col-12">
+                <span class="redirect" (click)="loginTemplate()">Click here to login</span>
+              </div>
+            </div>
+          </div>
+          </form>
+      </div>
+    </div>
+  </mat-card>
+</ng-template>

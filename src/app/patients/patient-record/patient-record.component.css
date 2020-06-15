@@ -1,0 +1,82 @@
+a {
+  font-family: Segoe UI;
+
+}
+mat-grid-list {
+  width: 95%;
+  align-self: center;
+  font-size: 25;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+mat-grid-tile {
+  border: 2px solid #8CC3E8;
+  padding:  20px;
+  vertical-align: auto;
+  align-content: top;
+  margin: 20px;
+}
+h3 {
+  font-weight: bold;
+  position: relative;
+  color: #8CC3E8;
+  font-style: oblique;
+  width: auto;
+}
+h5{
+  font-weight: bold;
+}
+table{
+  width: 200px;
+  font-size: 25;
+}
+td {
+  width : auto;
+}
+td.field{
+  font-weight: bold;
+  font-size: 25;
+  color: #707070;
+  font-family: Segoe UI;
+}
+
+div.relative{
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+div.absolute{
+
+  left: 5px;
+}
+
+div.actionButtons{
+  margin-top: 30px;
+  margin-left: 40%;
+  width: 100%;
+
+}
+button.approve{
+  margin-top: 10px;
+  background-color: #8FE854;
+  width: 200px;
+  height: 35px;
+  color: white;
+
+}
+button.reject {
+  margin-top: 10px;
+  background-color: #E88754;
+  width: 200px;
+  color: white;
+  height: 35px;
+}
+button.changetime {
+  margin-top: 10px;
+  background-color: rgb(84, 227, 232);
+  width: 200px;
+  color: white;
+  margin-bottom: 100px;
+}
+

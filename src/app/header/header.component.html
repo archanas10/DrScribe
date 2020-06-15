@@ -1,0 +1,40 @@
+<!-- <header>
+  <a href="#" class="logo">Dr.Scribe</a>
+  <img src="assets/logo.png">
+  <div class="menu">logout</div>
+</header> -->
+<mat-toolbar >
+  <span>
+    <a routerLink="/home"><img [src]=logo></a>
+  </span>
+  <span class="spacer"></span>
+  <div>
+    <p id="docName" *ngIf="user">Welcome Dr. {{ user?.displayName }}</p>
+  </div>
+
+  <ul class="menu">
+
+    <li >
+      <a mat-button routerLink="/home" routerLinkActive="mat-accent">Home</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/approval-request" routerLinkActive="mat-accent">Approval request</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/patient-details" routerLinkActive="mat-accent">Visited Patient</a>
+    </li>
+    <li >
+      <a mat-button routerLink="/appointment-calender" routerLinkActive="mat-accent">Appointment</a>
+    </li>
+    <li>
+      <button mat-button class="logout" (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
+<div>
+  <p> </p>
+</div>
+
+
+
+

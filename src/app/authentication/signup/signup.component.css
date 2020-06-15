@@ -1,0 +1,91 @@
+* {
+  font-family: Segoe UI;
+}
+img {
+  width: 240px;
+  height: 150px;
+  margin-left: 75px;
+
+}
+
+mat-card {
+  width: 400px;
+  height: 550px;
+  margin: 6% auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #29AAE0;
+}
+
+input{
+  padding: 10px 10px 10px 10px;
+  width: 80%;
+  margin: 5px auto 10px auto;
+  border: 1px solid #999;
+  outline: none;
+  border-radius: 10px;
+}
+
+label {
+  margin: 5px 50px 5px;
+}
+
+.btn-primary{
+  background-color: #29AAE0;
+  width: 75%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  border: 0;
+  border-radius: 20px;
+  outline: none;
+  font-weight: bold;
+  font-family: Segoe UI;
+}
+
+.redirect{
+  background-color: white;
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  border: 0;
+  outline: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+#btn {
+  top: 0;
+  left: 0;
+  position: absloute;
+  width:110px;
+  height: 100%;
+  border-radius: 30px;
+}
+
+span {
+  color: #777;
+  font-size: 12px;
+  width: 100%;
+  margin-left: 40%;
+}
+
+#login{
+  left: 50px;
+}
+
+#register{
+  left: 50px;
+}
+

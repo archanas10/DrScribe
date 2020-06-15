@@ -1,0 +1,58 @@
+*{
+  font-family: Segoe UI;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+li{
+  font-size: medium;
+  padding: 15px;
+}
+.spacer {
+  flex: 2 9 auto;
+
+}
+img{
+  width: 230px;
+  height: 130px;
+}
+mat-toolbar {
+  background-color:white;
+  height: 180px;
+  width: 100%;
+  border-bottom: 3px solid #29AAE0;
+}
+.logo {
+  height: 100px;
+  width: auto;
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+}
+.menu{
+  float: "right";
+  margin-top: 100px;
+  padding-top: 20px;
+  text-decoration: #8CC3E8;
+}
+#docName {
+  color: #294253;
+  font-weight: bold;
+  font-size: 12pt;
+  float: right;
+  text-align: right;
+  position: absolute;
+  margin-left: 390px;
+  margin-top: 0;
+}
+.logout{
+  font-size: large;
+  font-weight: bolder;
+  background-color: white;
+  border: none;
+  color: #0099ff;
+
+}

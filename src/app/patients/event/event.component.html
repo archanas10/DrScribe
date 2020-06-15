@@ -1,0 +1,13 @@
+
+<div class="container" id="container" *ngIf="approved===true; else reject">
+<div>
+  <p>Patient Appointment Approved !</p>
+</div>
+
+</div>
+<ng-template #reject>
+  <div>
+    <p>Patient Appointment Rejected !</p>
+
+  </div>
+</ng-template>

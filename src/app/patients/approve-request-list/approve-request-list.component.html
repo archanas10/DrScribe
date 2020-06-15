@@ -1,0 +1,26 @@
+<p class="info-text mat-body-1" *ngIf="patients.length == null">No appointment approval for now!</p>
+<div class="container">
+  <table class="table table-condensed" >
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Symptoms</th>
+          <th>Date of appointment</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let list of patients">
+              <td>{{ list.name }}</td>
+              <td>{{ list.age }}</td>
+              <td>{{ list.gender }}</td>
+              <td>{{ list.symptom }}</td>
+              <td>{{ list.date }}</td>
+              <td> <a routerLink="/patient-record" (click)="patientDetail(list)">More details</a></td>
+          </tr>
+
+      </tbody>
+
+    </table>
+</div>
