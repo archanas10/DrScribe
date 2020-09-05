@@ -1,5 +1,14 @@
 <p class="info-text mat-body-1" *ngIf="patients.length == null">No appointment approval for now!</p>
-<div class="container">
+<ul class="VisOrNVis">
+  <li >
+    <a mat-button (click)="PTMTemplate()" routerLinkActive="mat-accent">Patients to meet</a>
+  </li>
+  <li>
+    <a mat-button (click)="AVPTemplate()" routerLinkActive="mat-accent">Already Visted Patients</a>
+  </li>
+</ul>
+<div class="container" *ngIf="PTM===true; else avpTemplate">
+  <p>PTM</p>
   <table class="table table-condensed" >
       <thead>
         <tr>
@@ -24,3 +33,31 @@
 
     </table>
 </div>
+<ng-template #avpTemplate>
+<div class="container">
+  <p>AVP</p>
+  <table class="table table-condensed" >
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Symptoms</th>
+          <th>Date of appointment</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let list of patients">
+              <td>{{ list.name }}</td>
+              <td>{{ list.age }}</td>
+              <td>{{ list.gender }}</td>
+              <td>{{ list.symptom }}</td>
+              <td>{{ list.date }}</td>
+              <td> <a routerLink="/patient-record">More details</a></td>
+          </tr>
+
+      </tbody>
+
+    </table>
+</div>
+</ng-template>

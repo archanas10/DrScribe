@@ -2,27 +2,28 @@
 import { Injectable } from '@angular/core';
 import { Patient } from './../patients/patient-model';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { pid } from 'process';
 
 
 @Injectable({ providedIn: 'root' })
 
 export class PatientService {
 
-
-  patients: Observable<any[]>;
+  patientsRef: AngularFirestoreCollection<Patient>;
+  patients: Observable<Patient[]>;
   selectedPatient: any;
   approve= false;
-  reject= false;
+  reject = false;
+  PatientId: String;
 
 
   constructor(private db: AngularFireDatabase, public afs: AngularFirestore) {
-
-    this.patients = this.afs.collection('patients').valueChanges();
+    this.patientsRef = this.afs.collection('patients');
+    this.patients = this.patientsRef.valueChanges({idField: 'PatientId'});
 
   }
-
   ngOnInit() {
     this.approve= false;
     this.reject= false;
@@ -32,9 +33,10 @@ export class PatientService {
     return this.patients;
   }
 
-  setSelectedPatient(val: any){
+  setSelectedPatient(val: any, pid: string){
     this.selectedPatient = JSON.stringify(val);
-    console.log("from service" + this.selectedPatient);
+    this.PatientId = pid;
+    console.log("from service" + this.selectedPatient + "pid: " + pid);
 
   }
   getSelectedPatient() {
@@ -43,7 +45,13 @@ export class PatientService {
   onApprove() {
     console.log("Approve clicked");
     this.reject = false;
+    this.patientsRef.doc('pid').set({
+      ApprOrNAppr: true,
+      VisOrNVis: false
+    })
+    console.log(this.selectedPatient);
     return this.approve = true;
+
   }
   onReject() {
     console.log("Reject clicked");

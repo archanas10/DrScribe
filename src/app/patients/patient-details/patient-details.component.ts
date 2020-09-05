@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from './../patient-list.service';
-
+import { Patient } from '../patient-model';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-patient-details',
   templateUrl: './patient-details.component.html',
@@ -8,8 +10,10 @@ import { PatientService } from './../patient-list.service';
 })
 export class PatientDetailsComponent implements OnInit {
   patients: any;
+  PTM = true;
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService) {
+   }
 
   ngOnInit(): void {
     this.patientService.getPatients().subscribe(patient => {
@@ -17,5 +21,12 @@ export class PatientDetailsComponent implements OnInit {
       console.log(patient);
     })
   }
+  AVPTemplate() {
+    this.PTM = !this.PTM;
+  }
+  PTMTemplate(){
+    this.PTM = true;
+  }
+
 
 }

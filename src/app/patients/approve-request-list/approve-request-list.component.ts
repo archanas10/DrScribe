@@ -12,6 +12,7 @@ export class ApproveRequestListComponent implements OnInit {
   patients: any;
   patientRecord: any;
   selectedPatient: any;
+  pid: any;
 
   constructor(private patientService: PatientService) {
 
@@ -26,12 +27,13 @@ export class ApproveRequestListComponent implements OnInit {
     })
   }
 
-
   patientDetail(list) {
 
     this.selectedPatient = list;
-    console.log(this.selectedPatient)
-    this.patientService.setSelectedPatient(this.selectedPatient)
+    this.pid = this.selectedPatient.PatientId;
+    console.log(this.selectedPatient);
+    console.log("pid: " + this.pid);
+    this.patientService.setSelectedPatient(this.selectedPatient, this.pid)
 
   }
 

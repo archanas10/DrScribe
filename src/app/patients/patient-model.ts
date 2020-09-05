@@ -5,8 +5,9 @@ export class Patient {
   gender: string;
   symptom: string;
   date: Date;
-  // weight: number;
-  // height: number;
-  // appointmentDate: Date;
-  // active = true;
+  weight: number;
+  height: number;
+  appointmentDate: Date;
+  ApprOrNAppr: boolean;
+  VisOrNVis: boolean;
 }

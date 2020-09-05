@@ -8,15 +8,15 @@
         <table>
           <tr>
             <td class="field">Name</td>
-            <td>Sudhan</td>
+            <td>{{ SPparsedJson.name }}</td>
           </tr>
           <tr>
             <td class="field">Age</td>
-            <td>23</td>
+            <td>{{ SPparsedJson.age }}</td>
           </tr>
           <tr>
             <td class="field">Gender</td>
-            <td>Male</td>
+            <td>{{ SPparsedJson.gender }}</td>
           </tr>
           <tr>
             <td class="field">Last Visited</td>
@@ -34,11 +34,11 @@
         <table>
           <tr>
             <td class="field">Weight</td>
-            <td>60kgs</td>
+            <td>{{ SPparsedJson.weight }}</td>
           </tr>
           <tr>
             <td class="field">Height</td>
-            <td>180cm</td>
+            <td>{{ SPparsedJson.height }}</td>
           </tr>
           <tr>
             <td class="field">Blood Pressure</td>
@@ -118,7 +118,7 @@
     <div class="relative">
       <h3>Symptoms facing</h3>
       <div class="absolute">
-        <p>Cold, cough</p>
+        <p>{{ SPparsedJson.symptom }}</p>
       </div>
       <div class="absolute">
         <h3>Medication Prescribed</h3>
@@ -133,13 +133,13 @@
         <h5>Previous Appointment</h5>
       </div>
       <div class="absolute">
-        <p>23 May 2020</p>
+        <p>-</p>
       </div>
       <div class="absolute">
         <h5>Next Appointment</h5>
       </div>
       <div class="absolute">
-        <p>-</p>
+        <p>{{ SPparsedJson.date.seconds * 1000 | date:'medium' }}</p>
       </div>
     </div>
   </mat-grid-tile>
