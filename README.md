@@ -1,4 +1,8 @@
-# DrScribe
+# Dr. Scribe
+_An Angular Web Application_
+
+Dr. Scribe focuses on easing Doctor-Patient consultation process with the help of a virtual assistant.
+The current project provides a dashboard for doctors to accept, reject or change apointment timings of the patients who tried to request for an apointment through a virtual assistant.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
