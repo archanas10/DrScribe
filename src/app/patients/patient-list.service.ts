@@ -2,11 +2,13 @@
 import { Injectable } from '@angular/core';
 import { Patient } from './../patients/patient-model';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, combineChange } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { pid } from 'process';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BE } from 'src/environments/environment';
 
-
+var BackendUrl = BE.apiUrl;
 @Injectable({ providedIn: 'root' })
 
 export class PatientService {
@@ -14,19 +16,18 @@ export class PatientService {
   patientsRef: AngularFirestoreCollection<Patient>;
   patients: Observable<Patient[]>;
   selectedPatient: any;
-  approve= false;
+  isApproved= false;
   reject = false;
   PatientId: String;
 
 
-  constructor(private db: AngularFireDatabase, public afs: AngularFirestore) {
+  constructor(private db: AngularFireDatabase, public afs: AngularFirestore,  private http: HttpClient) {
     this.patientsRef = this.afs.collection('patients');
     this.patients = this.patientsRef.valueChanges({idField: 'PatientId'});
 
   }
   ngOnInit() {
-    this.approve= false;
-    this.reject= false;
+    this.isApproved= false;
   }
 
   getPatients(){
@@ -42,21 +43,35 @@ export class PatientService {
   getSelectedPatient() {
     return this.selectedPatient;
   }
-  onApprove() {
+  onApprove(currentPatient: any) {
     console.log("Approve clicked");
+    this.isApproved = true
+    const approved= currentPatient
+    approved.isAppointmentApproved = true
+    const cpid = currentPatient.PatientId
+    console.log(approved)
+    this.http.post<{message: string ; ApprOrNAppr:boolean}>(BackendUrl+'/patient-record', approved).subscribe((response) => {
+        console.log(response.message);
+        this.selectedPatient.push(approved);
+    })
     this.reject = false;
-    this.patientsRef.doc('pid').set({
-      ApprOrNAppr: true,
-      VisOrNVis: false
+    this.patientsRef.doc(cpid).set({
+      ...approved
     })
     console.log(this.selectedPatient);
-    return this.approve = true;
+    return this.isApproved;
 
   }
-  onReject() {
+  onReject(currentPatient: any) {
     console.log("Reject clicked");
-    this.approve = false;
-    return this.reject = true;
+    this.isApproved = false;
+    const approved= currentPatient
+    approved.isAppointmentApproved = false
+    const cpid = currentPatient.PatientId
+    this.patientsRef.doc(cpid).set({
+      ...approved
+    })
+    return this.isApproved;
   }
 
 

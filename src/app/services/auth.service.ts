@@ -38,6 +38,7 @@ export class AuthService {
     return this.afAuth.authState;
   }
   login( email: string, password: string) {
+    console.log("Inside Login")
     this.afAuth.signInWithEmailAndPassword(email, password)
       .catch(error => {
         this.eventAuthError.next(error);
@@ -61,12 +62,14 @@ export class AuthService {
   }
 
   async signOut() {
+    console.log("Inside signing out")
     await this.afAuth.signOut();
     this.router.navigate(['/']);
   }
 
   private updateUserData(user) {
     // Sets user data to firestore on login
+    console.log("Inside update of user")
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data = {
@@ -74,42 +77,42 @@ export class AuthService {
       username: user.firstName,
       email: user.email,
       phoneNo: user.phoneNo,
-      password: user.password
+      password: user.password,
+      role: user.role,
+      designation: user.designation
     }
     return userRef.set(data, { merge: true }); //existing data will not get erased
 
   }
 
-    createUser(user) {
-      console.log(user);
-      this.afAuth.createUserWithEmailAndPassword( user.email, user.password)
-        .then( userCredential => {
-          this.newUser = user;
-          console.log(userCredential);
-          userCredential.user.updateProfile( {
-            displayName: user.firstName + ' ' + user.lastName
-          });
-
-          this.insertUserData(userCredential)
-            .then(() => {
-              this.router.navigate(['./home']);
-            });
-        })
-        .catch( error => {
-          this.eventAuthError.next(error);
+  createUser(user) {
+    console.log("Inside creation of user")
+    console.log(user);
+    this.afAuth.createUserWithEmailAndPassword( user.email, user.password)
+      .then( userCredential => {
+        this.newUser = user;
+        console.log("User credentials: "+ userCredential, "newUser: " + this.newUser);
+        userCredential.user.updateProfile( {
+          displayName: user.firstName + ' ' + user.lastName
         });
-    }
 
-  insertUserData(userCredential: auth.UserCredential) {
-    return this.afs.doc(`Users/${userCredential.user.uid}`).set({
-      username: this.newUser.username,
-      email: this.newUser.email,
-      phoneNo: this.newUser.phoneNo,
-      role: 'network user'
-    })
+        this.insertUserData(user)
+          .then(() => {
+            this.router.navigate(['./home']);
+          });
+      })
+      .catch( error => {
+        this.eventAuthError.next(error);
+      });
+  }
+
+  insertUserData(user) {
+    console.log("Inside insertion of user")
+    return this.afs.collection(`users`).add(user)
   }
 
   logout() {
+    console.log("Logging out")
     this.router.navigate(['/signup']);
     return this.afAuth.signOut();
 

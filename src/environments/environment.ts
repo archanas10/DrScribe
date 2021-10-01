@@ -14,7 +14,10 @@ export const environment = {
     appId: "1:652816353882:web:9f26ce8ed9101c332e2663"
   }
 };
-
+export const BE = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api/'
+};
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

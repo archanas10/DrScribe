@@ -12,8 +12,6 @@ export class PatientRecordComponent implements OnInit {
 
   selectedPatient: any;
   SPparsedJson: any;
-  hello: 'hello';
-
 
 
   constructor(private patientService: PatientService, private router: Router) { }
@@ -26,13 +24,13 @@ export class PatientRecordComponent implements OnInit {
   onClickApprove(event: Event) {
     this.router.navigate(['./event']);
     console.log("record approved clicked");
-    this.patientService.onApprove();
+    this.patientService.onApprove(this.SPparsedJson);
 
   }
   onClickReject(event: Event) {
     this.router.navigate(['./event']);
     console.log("record rejected clicked");
-    this.patientService.onReject();
+    this.patientService.onReject(this.SPparsedJson);
   }
 
 }

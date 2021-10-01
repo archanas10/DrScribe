@@ -14,6 +14,8 @@ import { AppointmentCalenderComponent } from './patients/appointment-calender/ap
 
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -61,6 +63,7 @@ import { EventComponent } from './patients/event/event.component';
     MatCardModule,
     MatToolbarModule,
     MatGridListModule,
+    HttpClientModule
   ],
   providers: [  ],
   bootstrap: [AppComponent]

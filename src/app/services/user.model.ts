@@ -11,4 +11,6 @@ export interface User {
   email: string;
   phoneNo: number;
   password: string;
+  role: string;
+  designation: string;
 }

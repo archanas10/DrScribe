@@ -1,5 +1,5 @@
 export class Patient {
-  // key: string;
+  pid: string;
   name: string;
   age: number;
   gender: string;
@@ -9,5 +9,4 @@ export class Patient {
   height: number;
   appointmentDate: Date;
   ApprOrNAppr: boolean;
-  VisOrNVis: boolean;
 }

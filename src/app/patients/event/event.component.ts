@@ -13,19 +13,19 @@ export class EventComponent implements OnInit {
 
   ngOnInit(): void {
     this.approved = false;
-    this.approved = this.statusTemplate();
+    // this.approved = this.statusTemplate();
   }
 
-  statusTemplate() {
-    if (this.patientService.onApprove() === true) {
-      console.log("event approve")
-      this.approved = true;
-    } else if (this.patientService.onReject() === true) {
-      console.log("event reject")
-      this.approved = !this.approved;
-    }
-    return this.approved;
-  }
+  // statusTemplate() {
+  //   if (this.patientService.onApprove() === true) {
+  //     console.log("event approve")
+  //     this.approved = true;
+  //   } else if (this.patientService.onReject() === true) {
+  //     console.log("event reject")
+  //     this.approved = !this.approved;
+  //   }
+  //   return this.approved;
+  // }
 
 
 }
